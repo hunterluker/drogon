@@ -16,6 +16,20 @@ class Dashboard extends Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this._handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._handleKeyDown);
+  }
+
+  _handleKeyDown = event => {
+    if (event.keyCode === 13) {
+      this.handleSearch();
+    }
+  };
+
   handleSearch = async () => {
     let data = await this.handleSearchFilter();
     this.setState({

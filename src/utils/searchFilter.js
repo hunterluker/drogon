@@ -38,7 +38,7 @@ export const searchFilter = async (search, domain) => {
 
   if (search === 'ping') {
     let pingData = await axios.get(`/search/ping/?host=${domain}`);
-
+    console.log(pingData.data);
     return buildPingJSX(pingData.data);
   }
 
