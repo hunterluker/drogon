@@ -1,0 +1,30 @@
+.App {
+  background-color: #1c1c1c;
+  color: #97d077;
+}
+
+*:focus {
+  outline: none;
+}
+
+::placeholder {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: #97d077;
+}
+
+.dash-nav {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.fixfixed .dash-nav {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
