@@ -3,9 +3,11 @@ import './Results.css';
 
 export default class Results extends Component {
   render() {
+    const { data } = this.props;
     return (
       <div className="results-section">
-        <h1>Results</h1>
+        <div className="data">{data}</div>
+        <button>Save</button>
       </div>
     );
   }

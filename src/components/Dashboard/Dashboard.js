@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-spinkit';
 import { updateUser } from '../../ducks/auth_reducer';
 import { searchFilter } from '../../utils/searchFilter';
 import Results from '../Results/Results';
@@ -12,7 +13,8 @@ class Dashboard extends Component {
     this.state = {
       search: 'whois',
       domain: '',
-      data: ''
+      data: '',
+      loading: false
     };
   }
 
@@ -25,17 +27,25 @@ class Dashboard extends Component {
   }
 
   _handleKeyDown = event => {
-    if (event.keyCode === 13) {
+    const { domain } = this.state;
+    if (event.keyCode === 13 && domain) {
       this.handleSearch();
     }
   };
 
   handleSearch = async () => {
-    let data = await this.handleSearchFilter();
-    this.setState({
-      data: data,
-      domain: ''
-    });
+    const { domain } = this.state;
+    if (domain) {
+      this.setState({
+        loading: true
+      });
+      let data = await this.handleSearchFilter();
+      this.setState({
+        data: data,
+        domain: '',
+        loading: false
+      });
+    }
   };
 
   async handleSearchFilter() {
@@ -57,7 +67,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { search, data } = this.state;
+    const { search, data, loading } = this.state;
     return (
       <div className="dashboard-section">
         <div className="dashboard-search">
@@ -122,7 +132,11 @@ class Dashboard extends Component {
             </button>
           </div>
         </div>
-        {data ? (
+        {loading ? (
+          <div className="dash-load">
+            <Spinner name="circle" className="spinner" color="#97d077" />
+          </div>
+        ) : data ? (
           <Results data={data} search={search} />
         ) : (
           <div className="results-empty">
