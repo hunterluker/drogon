@@ -26,6 +26,15 @@ class Dashboard extends Component {
     document.removeEventListener('keydown', this._handleKeyDown);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.search !== this.state.search) {
+      this.setState({
+        data: '',
+        loading: false
+      });
+    }
+  }
+
   _handleKeyDown = event => {
     const { domain } = this.state;
     if (event.keyCode === 13 && domain) {

@@ -1,4 +1,5 @@
 import { buildPingJSX } from './buildPingJSX';
+import { buildWhoisJSX } from './buildWhoisJSX';
 const axios = require('axios');
 
 // module.exports = {
@@ -33,12 +34,11 @@ export const searchFilter = async (search, domain) => {
   if (search === 'whois') {
     let whoisData = await axios.get(`/search/whois?domain=${domain}`);
     console.log(whoisData.data);
-    return whoisData.data;
+    return buildWhoisJSX(whoisData.data);
   }
 
   if (search === 'ping') {
     let pingData = await axios.get(`/search/ping/?host=${domain}`);
-    console.log(pingData.data);
     return buildPingJSX(pingData.data);
   }
 

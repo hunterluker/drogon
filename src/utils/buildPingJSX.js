@@ -4,7 +4,6 @@ export const buildPingJSX = data => {
   let pingData = data.split('\n');
 
   let mappedPing = pingData.map((ping, i) => {
-    console.log(ping);
     return (
       <div className="ping-data" style={{ marginBottom: '3px' }} key={i}>
         <p

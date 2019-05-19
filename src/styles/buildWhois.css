@@ -1,0 +1,32 @@
+.whois-data {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.whois-data .main {
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+}
+
+.whois-data .location {
+  margin-left: 15%;
+}
+
+.host-names .status {
+  width: 150px;
+}
+
+.whois-data label {
+  font-weight: bold;
+  color: rgb(165, 165, 165);
+  margin-bottom: 3px;
+  display: inline-block;
+  font-size: 11px;
+  width: 100px;
+  text-transform: uppercase;
+}
+
+.whois-data p {
+  margin-bottom: 7px;
+}
