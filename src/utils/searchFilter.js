@@ -33,7 +33,6 @@ const axios = require('axios');
 export const searchFilter = async (search, domain) => {
   if (search === 'whois') {
     let whoisData = await axios.get(`/search/whois?domain=${domain}`);
-    console.log(whoisData.data);
     return buildWhoisJSX(whoisData.data);
   }
 

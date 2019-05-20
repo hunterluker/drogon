@@ -93,6 +93,17 @@
   align-items: center;
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(255, 43, 43);
+}
+
 /* .dash-load .sk-spinner {
   width: 20px;
   height: 30px;

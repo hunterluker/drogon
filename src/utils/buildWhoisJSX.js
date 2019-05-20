@@ -17,7 +17,6 @@ export const buildWhoisJSX = data => {
     registrarIANAID
   } = whoisData;
 
-  console.log(hostNames);
   return (
     <div className="whois-data">
       <div className="main">

@@ -9,8 +9,12 @@
   width: 80vw;
 }
 
+.whois-data .main-info {
+  width: 50%;
+}
+
 .whois-data .location {
-  margin-left: 15%;
+  margin-left: 5%;
 }
 
 .host-names .status {

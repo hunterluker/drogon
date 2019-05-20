@@ -14,7 +14,8 @@ class Dashboard extends Component {
       search: 'whois',
       domain: '',
       data: '',
-      loading: false
+      loading: false,
+      error: ''
     };
   }
 
@@ -24,6 +25,7 @@ class Dashboard extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this._handleKeyDown);
+    clearTimeout(this.timeOut);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -48,13 +50,34 @@ class Dashboard extends Component {
       this.setState({
         loading: true
       });
-      let data = await this.handleSearchFilter();
-      this.setState({
-        data: data,
-        domain: '',
-        loading: false
-      });
+      try {
+        let data = await this.handleSearchFilter();
+        this.setState({
+          data: data,
+          domain: '',
+          loading: false
+        });
+      } catch (err) {
+        console.log(err);
+        this.hanldeError();
+      }
     }
+  };
+
+  hanldeError = () => {
+    this.setState({
+      error: 'Domain not found in database.',
+      domain: '',
+      loading: false
+    });
+    this.timeOut = setTimeout(
+      function() {
+        this.setState({
+          error: ''
+        });
+      }.bind(this),
+      4000
+    );
   };
 
   async handleSearchFilter() {
@@ -76,7 +99,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { search, data, loading } = this.state;
+    const { search, data, loading, error } = this.state;
     return (
       <div className="dashboard-section">
         <div className="dashboard-search">
@@ -85,7 +108,6 @@ class Dashboard extends Component {
               <i className="fas fa-dragon dragon-icon" />
               <h1>Drogon</h1>
             </div>
-
             <input
               type="text"
               placeholder="Enter a domain here..."
@@ -145,6 +167,8 @@ class Dashboard extends Component {
           <div className="dash-load">
             <Spinner name="circle" className="spinner" color="#97d077" />
           </div>
+        ) : error ? (
+          <p className="error">{error}</p>
         ) : data ? (
           <Results data={data} search={search} />
         ) : (
