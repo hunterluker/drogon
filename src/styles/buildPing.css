@@ -1,0 +1,15 @@
+.ping-data {
+  margin-bottom: 3px;
+}
+
+.ping-data p {
+  font-size: 11px;
+  line-height: 1.5;
+  font-family: monospace;
+}
+
+@media (min-width: 375px) {
+  .ping-data p {
+    font-size: 13px;
+  }
+}

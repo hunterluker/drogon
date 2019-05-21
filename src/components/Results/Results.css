@@ -42,3 +42,9 @@
   background-color: #696969;
   transform: scale(1.02);
 }
+
+@media (min-width: 375px) {
+  .search-type {
+    font-size: 20px;
+  }
+}

@@ -34,3 +34,13 @@
 .whois-data p {
   margin-bottom: 7px;
 }
+
+@media (min-width: 375px) {
+  .whois-data label {
+    font-size: 13px !important;
+    width: 120px;
+  }
+  .whois-data p {
+    font-size: 14px !important;
+  }
+}
