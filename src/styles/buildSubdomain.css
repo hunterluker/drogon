@@ -1,0 +1,16 @@
+.subdomain-data {
+  margin-bottom: 1px;
+  display: flex;
+}
+
+.subdomain-data p {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: monospace;
+}
+
+@media (min-width: 375px) {
+  .subdomain-data p {
+    font-size: 14px;
+  }
+}
