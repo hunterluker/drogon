@@ -10,7 +10,6 @@
 
 .reverseip-data a {
   border-bottom: 1px solid rgba(110, 110, 110, 0.568);
-  transition: all 0.3s;
   font-weight: lighter;
 }
 

@@ -144,3 +144,10 @@
     font-weight: 500;
   }
 }
+
+@media (min-width: 400px) {
+  .search-btn {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+}

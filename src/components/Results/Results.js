@@ -25,7 +25,7 @@ export default class Results extends Component {
           <span>{this.handleSearchFormat()} Results:</span>
         </p>
         <div className="data">{data}</div>
-        <button>Save</button>
+        <button>Save Results</button>
       </div>
     );
   }

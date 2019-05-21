@@ -48,3 +48,10 @@
     font-size: 20px;
   }
 }
+
+@media (min-width: 360px) {
+  .results-section button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
