@@ -116,12 +116,9 @@ class Dashboard extends Component {
                   ? 'Enter an IP address...'
                   : 'Enter a domain here...'
               }
-              pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
               maxLength={search === 'reverseip' ? 15 : 55}
-              required
               onChange={this.handleDomain}
               value={this.state.domain}
-              required
             />
             <i
               className="fas fa-search search-icon"
