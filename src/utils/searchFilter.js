@@ -1,5 +1,6 @@
 import { buildPingJSX } from './buildPingJSX';
 import { buildWhoisJSX } from './buildWhoisJSX';
+import { buildReverseJSX } from './buildReverseJSX';
 const axios = require('axios');
 
 // module.exports = {
@@ -50,6 +51,6 @@ export const searchFilter = async (search, domain) => {
   if (search === 'reverseip') {
     let reverseipData = await axios.get(`/search/reverseip?ip=${domain}`);
     console.log(reverseipData.data);
-    return reverseipData.data;
+    return buildReverseJSX(reverseipData.data);
   }
 };

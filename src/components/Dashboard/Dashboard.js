@@ -68,7 +68,8 @@ class Dashboard extends Component {
     this.setState({
       error: 'Domain not found in database.',
       domain: '',
-      loading: false
+      loading: false,
+      data: ''
     });
     this.timeOut = setTimeout(
       function() {

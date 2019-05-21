@@ -1,0 +1,25 @@
+.reverseip-data {
+  margin: 3px 0;
+}
+
+.reverseip-data p {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.reverseip-data a {
+  border-bottom: 1px solid rgba(110, 110, 110, 0.568);
+  transition: all 0.3s;
+  font-weight: lighter;
+}
+
+.reverseip-data a:hover {
+  cursor: pointer;
+  color: rgba(255, 81, 81, 0.842);
+}
+
+.reverseip-data a:visited {
+  cursor: pointer;
+  color: rgba(255, 81, 81, 0.842);
+}
