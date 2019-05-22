@@ -169,6 +169,9 @@ class Dashboard extends Component {
             </button>
           </div>
         </div>
+
+        <div className="spacer" />
+
         {loading ? (
           <div className="dash-load">
             <Spinner name="circle" className="spinner" color="#97d077" />

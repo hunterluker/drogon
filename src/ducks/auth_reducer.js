@@ -1,6 +1,6 @@
 const initialState = {
   email: '',
-  userId: 1
+  userId: 0
 };
 
 const UPDATE_USER = 'UPDATE_USER';
