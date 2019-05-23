@@ -17,9 +17,12 @@ class Dashboard extends Component {
       loading: false,
       error: ''
     };
+
+    this.searchInput = React.createRef();
   }
 
   componentDidMount() {
+    this.searchInput.current.focus();
     document.addEventListener('keydown', this._handleKeyDown);
   }
 
@@ -45,6 +48,7 @@ class Dashboard extends Component {
   };
 
   handleSearch = async () => {
+    this.searchInput.current.blur();
     const { domain } = this.state;
     if (domain) {
       this.setState({
@@ -94,6 +98,7 @@ class Dashboard extends Component {
   };
 
   handleSearchInput = e => {
+    this.searchInput.current.focus();
     this.setState({
       search: e.target.name
     });
@@ -119,6 +124,7 @@ class Dashboard extends Component {
               maxLength={search === 'reverseip' ? 15 : 55}
               onChange={this.handleDomain}
               value={this.state.domain}
+              ref={this.searchInput}
             />
             <i
               className="fas fa-search search-icon"
