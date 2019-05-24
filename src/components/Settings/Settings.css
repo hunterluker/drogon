@@ -43,3 +43,29 @@
   font-size: 18px;
   text-transform: uppercase;
 }
+
+.settings-main {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-container label {
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.settings-container input[type='range'] {
+  border-radius: 5px;
+  width: 100px;
+  background: transparent;
+}

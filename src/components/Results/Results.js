@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { savePingResults, saveWhoisResults } from '../../ducks/search_reducer';
 import './Results.css';
 
-export default class Results extends Component {
+class Results extends Component {
   handleSearchFormat = () => {
     const { search } = this.props;
     if (search === 'reverseip') {
@@ -16,6 +18,19 @@ export default class Results extends Component {
       return search.charAt(0).toUpperCase() + search.slice(1);
     }
   };
+
+  handleSaveData = () => {
+    const { data, domain, search } = this.props;
+    // console.log(data);
+    if (search === 'whois') {
+      this.props.saveWhoisResults(domain, data);
+    }
+
+    if (search === 'ping') {
+      this.props.savePingResults(domain, data);
+    }
+  };
+
   render() {
     const { data } = this.props;
 
@@ -25,8 +40,13 @@ export default class Results extends Component {
           <span>{this.handleSearchFormat()} Results:</span>
         </p>
         <div className="data">{data}</div>
-        <button>Save Results</button>
+        <button onClick={this.handleSaveData}>Save Results</button>
       </div>
     );
   }
 }
+
+export default connect(
+  null,
+  { savePingResults, saveWhoisResults }
+)(Results);

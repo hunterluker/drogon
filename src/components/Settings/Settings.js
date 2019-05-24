@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Settings.css';
 
 export default class Settings extends Component {
   render() {
@@ -13,6 +14,13 @@ export default class Settings extends Component {
             <h2>Settings</h2>
           </div>
         </header>
+
+        <div className="settings-main">
+          <div className="settings-container">
+            <label>Change Theme</label>
+            <input type="range" min="0" max="1" />
+          </div>
+        </div>
       </div>
     );
   }

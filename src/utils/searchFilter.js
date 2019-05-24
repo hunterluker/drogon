@@ -45,13 +45,11 @@ export const searchFilter = async (search, domain) => {
 
   if (search === 'subdomain') {
     let subdomainData = await axios.get(`/search/subdomain?domain=${domain}`);
-    console.log(subdomainData.data);
     return buildSubdomainJSX(subdomainData.data);
   }
 
   if (search === 'reverseip') {
     let reverseipData = await axios.get(`/search/reverseip?ip=${domain}`);
-    console.log(reverseipData.data);
     return buildReverseJSX(reverseipData.data);
   }
 };

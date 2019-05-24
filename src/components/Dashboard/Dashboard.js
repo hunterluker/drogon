@@ -13,6 +13,7 @@ class Dashboard extends Component {
     this.state = {
       search: 'whois',
       domain: '',
+      savedDomain: '',
       data: '',
       loading: false,
       error: ''
@@ -93,7 +94,8 @@ class Dashboard extends Component {
 
   handleDomain = e => {
     this.setState({
-      domain: e.target.value
+      domain: e.target.value,
+      savedDomain: e.target.value
     });
   };
 
@@ -105,7 +107,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { search, data, loading, error } = this.state;
+    const { search, data, loading, error, savedDomain } = this.state;
     return (
       <div className="dashboard-section">
         <div className="dashboard-search">
@@ -185,7 +187,7 @@ class Dashboard extends Component {
         ) : error ? (
           <p className="error">{error}</p>
         ) : data ? (
-          <Results data={data} search={search} />
+          <Results data={data} search={search} domain={savedDomain} />
         ) : (
           <div className="results-empty">
             <i className="fas fa-sort-up" />
