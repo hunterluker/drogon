@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { savePingResults, saveWhoisResults } from '../../ducks/search_reducer';
+import {
+  savePingResults,
+  saveWhoisResults,
+  saveSubResults,
+  saveReverseResults
+} from '../../ducks/search_reducer';
 import './Results.css';
 
 class Results extends Component {
@@ -29,6 +34,14 @@ class Results extends Component {
     if (search === 'ping') {
       this.props.savePingResults(domain, data);
     }
+
+    if (search === 'subdomain') {
+      this.props.saveSubResults(domain, data);
+    }
+
+    if (search === 'reverseip') {
+      this.props.saveReverseResults(domain, data);
+    }
   };
 
   render() {
@@ -48,5 +61,5 @@ class Results extends Component {
 
 export default connect(
   null,
-  { savePingResults, saveWhoisResults }
+  { savePingResults, saveWhoisResults, saveReverseResults, saveSubResults }
 )(Results);
