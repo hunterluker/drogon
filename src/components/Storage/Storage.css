@@ -43,3 +43,7 @@
   font-size: 18px;
   text-transform: uppercase;
 }
+
+.storage-data-container {
+  margin: 20px 0;
+}

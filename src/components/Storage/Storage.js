@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Search from './Search/Search';
 import './Storage.css';
 
-export default class Storage extends Component {
+class Storage extends Component {
   render() {
+    const { data } = this.props;
     return (
       <div className="storage-section">
         <header className="storage-header">
@@ -14,7 +17,22 @@ export default class Storage extends Component {
             <h2>Storage</h2>
           </div>
         </header>
+
+        <div className="storage-data-container">
+          {data.map((el, i) => {
+            return <Search key={i} search={el} />;
+          })}
+        </div>
       </div>
     );
   }
 }
+
+function mapStateToProps({ searchReducer }) {
+  console.log(searchReducer);
+  return {
+    data: searchReducer.data
+  };
+}
+
+export default connect(mapStateToProps)(Storage);
