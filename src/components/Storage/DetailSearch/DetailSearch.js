@@ -31,6 +31,8 @@ class DetailSearch extends Component {
           </div>
         </header>
 
+        <div className="detail-spacer" />
+
         <div className="detail-container">
           <p className="detail-type">
             <span>{this.props.currentSearch.type} Results:</span>

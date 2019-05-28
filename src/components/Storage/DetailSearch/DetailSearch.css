@@ -1,8 +1,14 @@
 .detail-header {
   height: 10vh;
   display: flex;
-  position: relative;
   border-bottom: 1px solid rgba(212, 212, 212, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1c1c1c;
+  z-index: 1;
+  clear: both;
 }
 
 .detail-brand {
@@ -34,13 +40,19 @@
 }
 
 .detail-title h2 {
-  font-size: 18px;
+  font-size: 14px;
+}
+
+.detail-spacer {
+  width: 100%;
+  height: 10vh;
 }
 
 .detail-container {
   width: 90%;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 80px;
   position: relative;
 }
 
@@ -79,7 +91,7 @@
   transform: scale(1.02);
 }
 
-@media (max-width: 375px) {
+@media (min-width: 375px) {
   .detail-title h2 {
     font-size: 16px;
   }
