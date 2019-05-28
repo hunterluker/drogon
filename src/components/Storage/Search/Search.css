@@ -15,6 +15,14 @@
   position: relative;
 }
 
+.search-link {
+  height: 6.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 220px;
+}
+
 .search-container p {
   font-size: 14px;
   text-align: center;
@@ -32,6 +40,7 @@
   top: 50%;
   right: 5%;
   transform: translate(-5%, -50%);
+  z-index: 1;
 }
 
 @media (max-width: 320px) {

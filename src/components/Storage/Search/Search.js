@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Search.css';
+import { connect } from 'react-redux';
+import { removeSearch } from '../../../ducks/search_reducer';
 
-export default function Search(props) {
+function Search(props) {
   const { type, name, id } = props.search;
 
   function formatName() {
@@ -13,15 +15,25 @@ export default function Search(props) {
     }
   }
   return (
-    <Link to={`/detail/${id}`}>
-      <div className="search-container">
-        <p>
-          {type} - {formatName()}
-        </p>
-        <span>
-          <i className="fas fa-trash-alt" />
-        </span>
-      </div>
-    </Link>
+    <div className="search-container">
+      <Link to={`/detail/${id}`}>
+        <div className="search-link">
+          <p>
+            {type} - {formatName()}
+          </p>
+        </div>
+      </Link>
+      <span>
+        <i
+          className="fas fa-trash-alt"
+          onClick={() => props.removeSearch(id)}
+        />
+      </span>
+    </div>
   );
 }
+
+export default connect(
+  null,
+  { removeSearch }
+)(Search);

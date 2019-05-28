@@ -14,11 +14,12 @@ class DetailSearch extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
+
     this.props.findSearch(id);
   }
 
   render() {
-    console.log(this.props.currentSearch);
+    const { name, type } = this.props.currentSearch;
     return (
       <div>
         <header className="detail-header">
@@ -27,7 +28,7 @@ class DetailSearch extends Component {
             <h1>Drogon</h1>
           </div>
           <div className="detail-title">
-            <h2>{this.props.currentSearch.name}</h2>
+            <h2>{name}</h2>
           </div>
         </header>
 
@@ -35,7 +36,7 @@ class DetailSearch extends Component {
 
         <div className="detail-container">
           <p className="detail-type">
-            <span>{this.props.currentSearch.type} Results:</span>
+            <span>{type} Results:</span>
           </p>
           <div className="detail-search-data">
             {this.props.currentSearch.searchData}

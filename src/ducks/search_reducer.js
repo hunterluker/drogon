@@ -11,6 +11,7 @@ const SAVE_REVERSE_DATA = 'SAVE_REVERSE_RESULTS';
 const SAVE_SUB_DATA = 'SAVE_SUB_RESULTS';
 
 const FIND_SEARCH = 'FIND_SEARCH';
+const REMOVE_SEARCH = 'REMOVE_SEARCH';
 
 export function savePingResults(domain, data) {
   return {
@@ -62,6 +63,13 @@ export function findSearch(id) {
   };
 }
 
+export function removeSearch(id) {
+  return {
+    type: REMOVE_SEARCH,
+    payload: id
+  };
+}
+
 export default function searchReducer(state = initalState, action) {
   const { type, payload } = action;
   switch (type) {
@@ -77,6 +85,10 @@ export default function searchReducer(state = initalState, action) {
       let search = state.data.find(search => search.id === payload);
 
       return { ...state, currentSearch: search };
+    case REMOVE_SEARCH:
+      let filteredData = state.data.filter(serach => serach.id !== payload);
+      console.log(filteredData);
+      return { ...state, data: filteredData };
     default:
       return state;
   }
