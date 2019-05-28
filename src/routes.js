@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Welcome from './components/Welcome/Welcome';
 import Settings from './components/Settings/Settings';
 import Storage from './components/Storage/Storage';
+import DetailSearch from './components/Storage/DetailSearch/DetailSearch';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { updateUser } from './ducks/auth_reducer';
@@ -30,6 +31,7 @@ class Routes extends Component {
     const { userId } = this.props;
     return (
       <Switch>
+        <Route path="/detail/:id" component={DetailSearch} />
         <Route
           path="/storage"
           render={() => (userId ? <Storage /> : <Redirect to="/" />)}

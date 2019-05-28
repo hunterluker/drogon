@@ -20,7 +20,7 @@ class Storage extends Component {
 
         <div className="storage-data-container">
           {data.map((el, i) => {
-            return <Search key={i} search={el} />;
+            return <Search key={el.id} id={el} search={el} />;
           })}
         </div>
       </div>
@@ -29,7 +29,6 @@ class Storage extends Component {
 }
 
 function mapStateToProps({ searchReducer }) {
-  console.log(searchReducer);
   return {
     data: searchReducer.data
   };

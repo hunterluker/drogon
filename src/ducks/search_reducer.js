@@ -1,5 +1,8 @@
+import uuid from 'uuid/v4';
+
 const initalState = {
-  data: []
+  data: [],
+  currentSearch: {}
 };
 
 const SAVE_PING_DATA = 'SAVE_PING_RESULTS';
@@ -7,35 +10,55 @@ const SAVE_WHOIS_DATA = 'SAVE_WHOIS_RESULTS';
 const SAVE_REVERSE_DATA = 'SAVE_REVERSE_RESULTS';
 const SAVE_SUB_DATA = 'SAVE_SUB_RESULTS';
 
+const FIND_SEARCH = 'FIND_SEARCH';
+
 export function savePingResults(domain, data) {
-  console.log(domain, data);
   return {
     type: SAVE_PING_DATA,
-    payload: { type: 'Ping', name: domain, searchData: [...data] }
+    payload: { id: uuid(), type: 'Ping', name: domain, searchData: [...data] }
   };
 }
 
 export function saveWhoisResults(domain, data) {
-  console.log(domain, data);
   return {
     type: SAVE_WHOIS_DATA,
-    payload: { type: 'Whois', name: domain, searchData: { ...data } }
+    payload: {
+      id: uuid(),
+      type: 'Whois',
+      name: domain,
+      searchData: { ...data }
+    }
   };
 }
 
 export function saveReverseResults(domain, data) {
-  console.log(domain, data);
   return {
     type: SAVE_REVERSE_DATA,
-    payload: { type: 'Reverse-IP', name: domain, searchData: [...data] }
+    payload: {
+      id: uuid(),
+      type: 'Reverse-IP',
+      name: domain,
+      searchData: [...data]
+    }
   };
 }
 
 export function saveSubResults(domain, data) {
-  console.log(domain, data);
   return {
     type: SAVE_REVERSE_DATA,
-    payload: { type: 'Subdomain', name: domain, searchData: [...data] }
+    payload: {
+      id: uuid(),
+      type: 'Subdomain',
+      name: domain,
+      searchData: [...data]
+    }
+  };
+}
+
+export function findSearch(id) {
+  return {
+    type: FIND_SEARCH,
+    payload: id
   };
 }
 
@@ -50,6 +73,10 @@ export default function searchReducer(state = initalState, action) {
       return { ...state, data: [...state.data, payload] };
     case SAVE_SUB_DATA:
       return { ...state, data: [...state.data, payload] };
+    case FIND_SEARCH:
+      let search = state.data.find(search => search.id === payload);
+
+      return { ...state, currentSearch: search };
     default:
       return state;
   }
