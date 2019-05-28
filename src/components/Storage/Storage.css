@@ -7,8 +7,20 @@
 .storage-header {
   height: 10vh;
   display: flex;
+  width: 100%;
   position: relative;
   border-bottom: 1px solid rgba(212, 212, 212, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1c1c1c;
+  clear: both;
+  z-index: 1;
+}
+
+.storage-spacer {
+  width: 100%;
+  height: 10vh;
 }
 
 .storage-brand {

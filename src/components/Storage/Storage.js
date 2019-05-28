@@ -18,6 +18,8 @@ class Storage extends Component {
           </div>
         </header>
 
+        <div className="storage-spacer" />
+
         <div className="storage-data-container">
           {data.map((el, i) => {
             return <Search key={el.id} id={el} search={el} />;
